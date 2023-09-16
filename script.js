@@ -28,7 +28,6 @@ function formatNumber(number) {
 }
 
 function sanitizeInput(input) {
-    // Ersetzt spezielle Zeichen durch HTML-Entities
     return input.replace(/&/g, '&amp;')
                 .replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;')
@@ -50,7 +49,6 @@ function checkAddresses() {
         totalValue += value;
     }
 
-    // Sortiere das Ergebnis-Array nach Wert
     resultsArray.sort((a, b) => b.value - a.value);
 
     let output = "";
