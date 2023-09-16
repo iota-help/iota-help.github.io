@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOTA (ASMB) Airdrop Checker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1, h3 {
+            text-align: left;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        textarea {
+            width: 800px;
+            height: 300px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+        }
+
+		#total {
+			font-weight: bold;
+			text-align: center;
+			text-decoration: underline;
+			font-size: 1.5em;
+			margin-bottom: 20px;
+		}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th:nth-child(1), td:nth-child(1) {
+            width: 650px;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 150px;
+        }
+
+		td:nth-child(2) {
+			text-align: right;
+		}
+
+        .video-container {
+            width: 800px;
+            float: right;
+            margin-left: 20px;
+			margin-bottom: 40px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>IOTA (ASMB) Airdrop Checker</h1>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xbYi5jDSF_M?si=GLdrbmsBbshmDZhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <p>Insert your IOTA addresses into the following field:</p>
+        <textarea id="addressInput" rows="15" placeholder="Paste the addresses here..."></textarea>
+        <button onclick="checkAddresses()">Check Addresses</button>
+
+        <h3>Total Sum:</h3>
+        <div id="total"></div>
+        
+        <h3>Results:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Address</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="results"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
