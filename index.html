@@ -31,12 +31,27 @@
             padding: 10px 20px;
         }
 
-		#total {
-			font-weight: bold;
-			text-align: center;
-			text-decoration: underline;
+		#totalTable {
 			font-size: 1.5em;
 			margin-bottom: 20px;
+		}
+
+		#total tr:first-child td {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+		
+		#total tr:not(:first-child) td {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		#totalTable {
+			width: 100%;
+		}
+		
+		#totalTable td {
+			text-align: right;
 		}
 
         table {
@@ -90,8 +105,11 @@
         <textarea id="addressInput" rows="15" placeholder="Paste the addresses here..."></textarea>
         <button onclick="checkAddresses()">Check Addresses</button>
 
-        <h3>Total Sum:</h3>
-        <div id="total"></div>
+		<h3>Total Sum:</h3>
+		<table id="totalTable">
+			<tbody id="total"></tbody>
+		</table>
+
         
         <h3>Results:</h3>
         <table>
@@ -103,9 +121,9 @@
             </thead>
             <tbody id="results"></tbody>
         </table>
-	<footer style="margin-top: 30px;">
-		<p>Source of data (iota addresses and balances) - IOTA New Supply: <a href="https://github.com/iotaledger/new_supply" target="_blank" rel="noopener noreferrer">https://github.com/iotaledger/new_supply</a></p>
-	</footer>
+		<footer style="margin-top: 30px;">
+			<p>Source of data (iota addresses and balances) - IOTA New Supply: <a href="https://github.com/iotaledger/new_supply" target="_blank" rel="noopener noreferrer">https://github.com/iotaledger/new_supply</a></p>
+		</footer>
     </div>
 
     <script src="script.js"></script>
