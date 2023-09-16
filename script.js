@@ -24,7 +24,11 @@ function fetchCSV(url) {
 fetchCSV('https://raw.githubusercontent.com/iotaledger/new_supply/main/iota_airdrop/address_balances.csv');
 
 function formatNumber(number) {
-    return number.toLocaleString();
+    const originalFormat = number.toLocaleString('en-US');
+    const miotaValue = number / 1000000;
+    const miotaFormat = miotaValue.toLocaleString('en-US', { minimumFractionDigits: 6, maximumFractionDigits: 6 });
+    const iotaFormat = (number / 1000000).toLocaleString('en-US', { minimumFractionDigits: 6, maximumFractionDigits: 6 });
+    return { originalFormat, miotaFormat, iotaFormat };
 }
 
 function sanitizeInput(input) {
@@ -53,9 +57,23 @@ function checkAddresses() {
 
     let output = "";
     for (let result of resultsArray) {
-        output += `<tr><td>${result.address}</td><td>${formatNumber(result.value)}</td></tr>`;
+        output += `<tr><td>${result.address}</td><td>${formatNumber(result.value).originalFormat}</td></tr>`;
     }
 
-    document.getElementById("results").innerHTML = output;
-    document.getElementById("total").innerText = formatNumber(totalValue);
+	const formattedTotal = formatNumber(totalValue);
+	document.getElementById("total").innerHTML = `
+		<tr>
+			<td>(OLD = Chrysalis in base tokens) IOTAs</td>
+			<td>${formattedTotal.originalFormat}</td>
+		</tr>
+		<tr>
+			<td>OR (OLD = Chrysalis in metric units) MIOTA</td>
+			<td>${formattedTotal.miotaFormat}</td>
+		</tr>
+		<tr>
+			<td>OR (NEW = Stardust units) IOTA.micros</td>
+			<td>${formattedTotal.iotaFormat}</td>
+		</tr>
+	`;
+	document.getElementById("results").innerHTML = output;
 }
