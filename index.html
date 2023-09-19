@@ -66,19 +66,31 @@
             text-align: left;
         }
 
+		#unlockTable td {
+			text-align: right;
+		}
+
+		#unlockTable th:nth-child(3) {	
+			width: 200px;
+		}
+
         th {
             background-color: #f2f2f2;
         }
 
         th:nth-child(1), td:nth-child(1) {
-            width: 650px;
+            width: 550px;
         }
         th:nth-child(2), td:nth-child(2) {
-            width: 150px;
+            width: 250px;
         }
 
 		td:nth-child(2) {
 			text-align: right;
+		}
+
+		#totalSumHeader, #unlockScheduleHeader, #resultsHeader, #totalTable, #unlockScheduleTable, #resultsTable {
+			display: none;
 		}
 
         .video-container {
@@ -101,18 +113,29 @@
         <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/xbYi5jDSF_M?si=GLdrbmsBbshmDZhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <p>Insert your IOTA addresses into the following field:</p>
+        <h3>Insert your IOTA addresses into the following field:</h3>
         <textarea id="addressInput" rows="15" placeholder="Paste the addresses here..."></textarea>
         <button onclick="checkAddresses()">Check Addresses</button>
 
-		<h3>Total Sum:</h3>
+		<h3 id="totalSumHeader">Total Sum:</h3>
 		<table id="totalTable">
 			<tbody id="total"></tbody>
 		</table>
 
+		<h3 id="unlockScheduleHeader">IOTA Unlock Schedule:</h3>
+		<table id="unlockScheduleTable">
+			<thead>
+				<tr>
+					<th>Date (potentially)</th>
+					<th>Unlocked Tokens</th>
+					<th>Remaining<br>locked Tokens</th>
+				</tr>
+			</thead>
+			<tbody id="unlockSchedule"></tbody>
+		</table>
         
-        <h3>Results:</h3>
-        <table>
+        <h3 id="resultsHeader">Address Results:</h3>
+        <table id="resultsTable">
             <thead>
                 <tr>
                     <th>Address</th>
@@ -122,8 +145,9 @@
             <tbody id="results"></tbody>
         </table>
 		<footer style="margin-top: 30px;">
-			<p>- Source of address and balance data (iotaledger github repo): IOTA New Supply:<br><a href="https://github.com/iotaledger/new_supply" target="_blank" rel="noopener noreferrer">https://github.com/iotaledger/new_supply</a><br>
-			- IOTA Blog: IOTA&apos;s Stardust Upgrade and the Evolution of &#36;IOTA Tokenomics:<br><a href="https://blog.iota.org/stardust-upgrade-iota-tokenomics/" target="_blank" rel="noopener noreferrer">https://blog.iota.org/stardust-upgrade-iota-tokenomics/</a></p>
+			<p><b>Sources:</b><br>
+			- Address and balance data (iotaledger github repo): IOTA New Supply:<br><a href="https://github.com/iotaledger/new_supply" target="_blank" rel="noopener noreferrer">https://github.com/iotaledger/new_supply</a><br>
+			- IOTA&apos;s Stardust Upgrade and the Evolution of &#36;IOTA Tokenomics (IOTA Blog):<br><a href="https://blog.iota.org/stardust-upgrade-iota-tokenomics/" target="_blank" rel="noopener noreferrer">https://blog.iota.org/stardust-upgrade-iota-tokenomics/</a></p>
 		</footer>
     </div>
 
